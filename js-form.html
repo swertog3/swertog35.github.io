@@ -1,0 +1,241 @@
+<!DOCTYPE html>  <!-- Объявление типа документа -->
+<html lang="ru">  <!-- Корневой элемент HTML, указание языка -->
+<head> <!-- Заголовок документа, содержит мета-информацию -->
+    <meta charset="UTF-8"> <!-- Установка кодировки документа -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Настройка адаптивности -->
+    <title>Сайт</title> <!-- Заголовок вкладки браузера -->
+    <link rel="stylesheet" href="style.css"> <!-- Подключение внешнего CSS-файла -->
+    <style>
+        <!--Общий стиль для всех устройств-->
+        body {
+            margin: 0;  <!-- Убираем отступы по умолчанию -->
+            font-family: Arial, sans-serif;  <!-- Устанавливаем шрифт  -->
+        }
+        .F {
+            width: 100%;  <!-- Ширина контейнера  -->
+            margin: 0 auto;  <!-- Центрируем контейнер  -->
+        }
+        .M {
+            background-color: #074207;  <!-- Цвет фона  -->
+            padding: 20px 0;  <!-- Отступы внутри блока  -->
+            text-align: left;  <!-- Выравнивание текста по центру  -->
+        }
+        nav {
+            background-color: #074207;  <!-- Цвет фона  -->
+
+        }
+        nav ul {
+            list-style: none;  <!-- Убираем маркеры списка  -->
+            padding: 0;  <!-- Убираем внутренние отступы  -->
+            margin: 0;  <!-- Убираем внешние отступы  -->
+            display: flex;  <!-- Используем Flexbox  -->
+            flex-direction: column;  <!-- Вертикальный список на мобильных  -->
+        }
+        nav li {
+            margin-bottom: 10px;  <!-- Отступ между элементами списка  -->
+        }
+         <!-- Стили для планшетов и десктопов  -->
+        @media (min-width: 768px) {
+            nav ul {
+                flex-direction: row;  <!-- Горизонтальный список  -->
+            }
+            nav li {
+                margin-right: 20px;  <!-- Отступ справа  -->
+                margin-bottom: 0;  <!-- Убираем нижний отступ  -->
+            }
+        }
+         <!-- Стили для таблицы  -->
+        table {
+            width: 100%;  <!-- Ширина таблицы на всю доступную область  -->
+            border-collapse: collapse;  <!-- Объединение границ ячеек  -->
+        }
+        table, th, td {
+            border: 1px solid #ddd;  <!-- Границы ячеек  -->
+            padding: 8px;  <!-- Внутренние отступы ячеек  -->
+        }
+        th {
+            background-color: #f2f2f2;  <!-- Цвет фона заголовков  -->
+        }
+         <!-- Стили для формы  -->
+        form {
+            margin-top: 20px;  <!-- Отступ сверху  -->
+        }
+        form input, form button {
+            padding: 10px;  <!-- Внутренние отступы  -->
+            margin-right: 10px;  <!-- Отступ справа  -->
+        }
+        main .F {
+            display: flex;
+            flex-direction: column;
+        }
+
+         <!-- Для мобильных устройств  -->
+        @media (max-width: 767px) {
+            main .F > table {
+                order: 1;  <!-- Таблица выше  -->
+            }
+
+            main .F > ul {
+                order: 2;  <!-- Список ниже  -->
+            }
+            main .F > form {
+                order: 3;
+            }
+        }
+
+         <!-- Для десктопов можно оставить исходный порядок  -->
+        @media (min-width: 768px) {
+            main .F {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body> <!-- Тело документа, содержит весь видимый контент -->
+    <header> <!-- Заголовок сайта -->
+        <div class="M"> <!-- Контейнер с классом F для стилизации -->
+            <img src="https://avatars.mds.yandex.net/i?id=c773ca51a07233f2e45f62a11746d96e_l-4359636-images-thumbs&n=13" alt="Логотип" class="L"> <!-- Логотип сайта с классом L -->
+            <<nav class="main-nav"> <!-- Навигационное меню -->
+                <ul> <!-- Маркированный список -->
+                    <!-- Пунктs меню с ссылкой -->
+                    <li><a href="#">Ссылка меню 1</a></li>
+                    <li><a href="#">Ссылка 2</a></li>
+                    <li><a href="#">Ссылка 3</a></li>
+                </ul>
+            </nav>
+            <h1>Мой сайт</h1> <!-- Заголовок первого уровня -->
+        </div>
+    </header>
+
+    <main> <!-- Основной контент страницы -->
+        <div class="F"> <!-- Контейнер с классом F -->
+            <ul class="links">  <!-- Неупорядоченный список ссылок -->
+              <h2>Список гиперссылок:</h2> <!-- Заголовок второго уровня -->
+              <li> <a href="https://kubsu.ru/" > 1 </a> </li> <!-- Пункт списка с ссылкой на сайт -->
+              <li> <a href="https://kubsu.ru/"> 2 </a> </li> <!-- Аналогично предыдущему -->
+              <li> <a href="https://kubsu.ru/" > <img src="https://static.kino.1tv.ru/cdn/3291/background.jpg" alt="3">  </a></li> <!-- Ссылка с изображением внутри -->
+              <li> <a href="/about"> 4 </a> </li> <!-- Ссылка на внутреннюю страницу -->
+              <li><a href="/">5 </a></li> <!-- Ссылка на главную страницу сайта -->
+              <li>
+                  <a href="#about"> 6.откуда</a> <!-- Якорная ссылка -->
+                  <p id="about"> 6.куда</p> <!-- Якорный элемент -->
+              </li>
+              <li><a href="https://kubsu.ru/?a=b&c=d&e=f">7</a></li> <!-- Ссылка с GET-параметрами -->
+              <li><a href="https://kubsu.ru/?id=g">8</a></li> <!-- Ссылка с одним GET-параметром -->
+              <li> <a href="about.html"> 9 </a> </li> <!-- Ссылка на файл в текущей директории -->
+              <li> <a href="/about.html"> 10 </a> </li> <!-- Ссылка на файл из корня сайта -->
+              <li> <a href="../about.html"> 11 </a> </li> <!-- Ссылка на файл в родительской директории -->
+              <li> <a href="../../about.html"> 12 </a> </li> <!-- Ссылка на файл через две директории вверх -->
+              <li> Это <a href="about.html"> 13 </a></li> <!-- Текст с вложенной ссылкой -->
+              <li><a href="https://example.com#x">14</a></li> <!-- Внешняя ссылка с якорем -->
+              <li>
+                  <img src="https://i.pinimg.com/474x/b6/a2/fa/b6a2faaad435ad7bdc52abe8353500a1.jpg?nii=t" usemap="#map" alt="15"> <!-- Изображение с картой областей -->
+                  <map name="map"> <!-- Карта областей для изображения -->
+                      <area shape="rect" coords="0,0,15,15" href="a.html" alt="15.1">  <!-- Прямоугольная кликабельная область, где(x1;y1),(x2;y2), т.е. координаты левого верхнего и правого нижнего, задаются в пикселях -->
+                      <area shape="circle" coords="100,100,33" href="b.html" alt="15.2" > <!-- Круглая кликабельная область -->
+                  </map>
+              </li>
+              <li><a href=""> 16</a></li> <!-- Пустая ссылка (может использоваться для JavaScript) -->
+              <li><a>17</a></li> <!-- Ссылка без href (неактивная) -->
+              <li><a href="https://kubsu.ru" rel="nofollow"> 18 </a></li> <!-- Ссылка с указанием не передавать вес страницы -->
+              <li><a href="https://kubsu.ru" rel="noindex"> 19 </a></li> <!-- Ссылка с указанием не индексировать -->
+              <li><a href="ftp://xyz:1234@ftp.example.com/about.html">21</a> <!-- FTP-ссылка с авторизацией -->
+            </ul>
+            <ol class="links"> <!-- Упорядоченный (нумерованный) список -->
+                <li><a href="#" title="a">20/1</a></li> <!-- Нумерованный пункт со ссылкой и всплывающей подсказкой -->
+                <li><a href="#" title="b">20/2</a></li> <!-- Аналогично предыдущему -->
+            </ol>
+            <h2>Таблица</h2>  <!-- Заголовок секции -->
+            <table class="data"> <!-- Начало таблицы -->
+                <thead> <!-- Заголовок таблицы -->
+                    <tr> <!-- Строка таблицы -->
+                        <th colspan="4">Заголовок</th> <!-- Заголовочная ячейка на 4 столбца -->
+                    </tr>
+                </thead>
+                <tbody> <!-- Тело таблицы -->
+                    <tr>
+                        <td rowspan="2">Объединённая ячейка</td>
+                        <td>Ячейка 11</td>
+                        <td>Ячейка 12</td>
+                        <td>Ячейка 13</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 21</td>
+                        <td>Ячейка 22</td>
+                        <td>Ячейка 23</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 31</td>
+                        <td colspan="2">Объединённая по горизонтали</td>
+                        <td>Ячейка 34</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Форма:</h2>
+            <form action="/submit" method="post">
+            <div class="cla">
+                <label for="1.1">ФИО</label>
+                <input type="text" id="1.1" name="1.1" required>
+            </div>
+            <div class="cla">
+                <label for="2">Телефон</label>
+                <input type="tel" id="2" name="2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="000-000-000" required>
+            </div>
+            <div class="cla">
+                <label for="3">e-mail</label>
+                <input type="email" id="3" name="3" required>
+            </div>
+            <div class="cla">
+                <label for="4">дата рождения:</label>
+                <input type="date" id="4" name="4" required>
+            </div>
+            <div class="cla">
+                <label>пол</label>
+                <div>
+                    <input type="radio" id="5.1" name="5.2" value="5.1" required>
+                    <label for="5.1">Муж</label>
+                </div>
+                <div>
+                    <input type="radio" id="5.3" name="5.2" value="5.3">
+                    <label for="5.3">Жен</label>
+                </div>
+                <div>
+                    <input type="radio" id="5.4" name="5.2" value="5.4">
+                    <label for="5.4">Не указан</label>
+                </div>
+            </div>
+            <div class="cla">
+                <label>любимый язык программирования</label>
+                <select name="programming_languages[]" multiple size="3">
+                    <option value="Pascal">Pascal</option>
+                    <option value="C">C</option>
+                    <option value="Cpp">C++</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Haskell">Haskell</option>
+                    <option value="Clojure">Clojure</option>
+                    <option value="Prolog">Prolog</option>
+                    <option value="Scala">Scala</option>
+                </select>
+            </div>
+            <div class="cla">
+                <label for="bio">биография</label>
+                <textarea id="bio" name="7" rows="3" cols="3"></textarea>
+            </div>
+            <div class="cla">
+                <input type="checkbox" id="8" name="8" required>
+                <label for="8">с контрактом ознакомлен(а)</label>
+            </div>
+                <button type="submit">кнопка «Сохранить»</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="M">
+            <p>&copy; Имя Фамилия</p>
+        </div>
+    </footer>
+</body>
+</html>
