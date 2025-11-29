@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Калькулятор стоимости заказа</title>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <form id="orderForm">
@@ -11,17 +12,16 @@
 
         <label for="product">Выберите товар:</label>
         <select id="product" name="product">
-            <option value="0">Выберите товар</option>
             <option value="100">Товар 1 (100 руб.)</option>
-            <option value="200">Товар 2 (200 руб.)</option>
-            <option value="300">Товар 3 (300 руб.)</option>
+            <option value="250">Товар 2 (250 руб.)</option>
+            <option value="400">Товар 3 (400 руб.)</option>
         </select>
 
         <button type="button" id="calculateBtn">Посчитать стоимость</button>
     </form>
 
-    <div id="result"></div>
-
-    <script src="calculator.js" defer></script>
+    <div class="result-container" id="resultContainer" style="display: none;"> <!-- Контейнер для результата, изначально скрытый -->
+        <div id="result" class="single-line"></div>
+    </div>
 </body>
 </html>
