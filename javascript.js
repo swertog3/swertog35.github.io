@@ -1,29 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const calculateBtn = document.getElementById('calculateBtn');
-    const quantityInput = document.getElementById('quantity');
-    const productSelect = document.getElementById('product');
-    const resultDiv = document.getElementById('result');
+document.addEventListener('DOMContentLoaded', function() { // Этот код выполнится, когда DOM будет готов
+    const calculateBtn = document.getElementById('calculateBtn'); // Получаю кнопку по ID
+    const quantityInput = document.getElementById('quantity'); // Получаю поле ввода количества
+    const productSelect = document.getElementById('product');// Получаю выпадающий список
+    const resultDiv = document.getElementById('result'); // Получаю элемент для вывода результата
+    const resultContainer = document.getElementById('resultContainer'); // Получаю контейнер результата
 
-    calculateBtn.addEventListener('click', function() {
-        // Получаем значения из формы
-        const quantity = parseInt(quantityInput.value);
-        const price = parseInt(productSelect.value);
+    calculateBtn.addEventListener('click', function() { // При клике на кнопку
+        const quantityValue = quantityInput.value.trim();  // Получаю значение из поля ввода и убираем пробелы
+        const regex = /^\d+$/; // Регулярное выражение для проверки только цифр
 
-        // Валидация ввода (проверка на пустые поля и недопустимые символы)
-        if (isNaN(quantity) || quantity <= 0) {
-            resultDiv.innerHTML = 'Ошибка: введите корректное количество товара!';
+        if (!regex.test(quantityValue)) { // Если значение не соответствует формату
+            alert('Пожалуйста, введите только цифры для количества товара!');
             return;
         }
 
-        if (isNaN(price) || price === 0) {
-            resultDiv.innerHTML = 'Ошибка: выберите товар из списка!';
-            return;
-        }
+        const productPrice = parseFloat(productSelect.value);  // Получаю цену выбранного товара
+        const quantity = parseInt(quantityValue, 10); // Преобразую строку в целое число
+        const totalCost = productPrice * quantity; // Рассчитываю общую стоимость
 
-        // Рассчитываем стоимость заказа
-        const totalCost = quantity * price;
-
-        // Выводим результат на страницу
-        resultDiv.innerHTML = `Стоимость заказа: ${totalCost} руб.`;
+        resultDiv.innerHTML = 'Стоимость заказа: ' + totalCost + ' руб.';  // Вывожу результат
+        resultContainer.style.display = 'block';  // Показываю контейнер с результатом
     });
 });
